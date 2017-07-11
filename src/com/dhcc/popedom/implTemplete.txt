@@ -1,0 +1,143 @@
+package {{packagePath}};
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
+
+import {{domainPath}};
+import com.sun.rowset.CachedRowSetImpl;
+
+import framework.dhcc.db.DBFacade;
+import framework.dhcc.page.Page;
+import framework.dhcc.page.PageBean;
+import framework.dhcc.utils.LogUtil;
+
+public class {{domainName}}Impl {
+	Page page = new Page();
+
+	public String get{{domainName}}List(String curPage, String perNumber,
+			String orderByField, String orderBySort, String searchField,
+			String searchValue) throws Exception {
+		if (curPage == null || "".equals(curPage)) {
+			curPage = "1";
+		}
+		if (perNumber == null || "".equals(perNumber)) {
+			perNumber = "10";
+		}
+		page.setPage(Integer.parseInt(curPage));
+		page.setRows(Integer.parseInt(perNumber));
+		// TODO: handle exception
+		String sql = "{{searchSql}}";
+
+		if (searchField != null && !"".equals(searchField)
+				&& !"undefined".equals(searchField)
+				&& !"undefined".equals(searchValue)) {
+			sql = sql + " and " + searchField + " like '%" + searchValue
+					+ "%' ";
+		}
+
+		if (orderByField != null && !"".equals(orderByField)
+				&& !"undefined".equals(orderByField)) {
+			page.setSidx(orderByField);
+			page.setSord(orderBySort);
+		} else {
+			// TODO: handle exception
+			page.setSidx("{{orderByField}}");
+			page.setSord("desc");
+		}
+
+		PageBean pageData = new PageBean(sql, page);
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+
+		List<{{domainName}}> list = new ArrayList<{{domainName}}>();
+		CachedRowSetImpl crs = pageData.getCrs();
+		while (crs.next()) {
+			{{domainName}} bean = new {{domainName}}();
+			{{listResult}}
+			list.add(bean);
+		}
+		map.put("msg", "true");
+		map.put("record", list);
+		map.put("totalPage", "" + pageData.getPageAmount());
+		map.put("curPage", "" + pageData.getPageNo());
+		map.put("totalRecord", "" + pageData.getItemAmount());
+		JSONObject ob = new JSONObject();
+		ob.putAll(map);
+		return ob.toString();
+	}
+
+	public void add{{domainName}}({{domainName}} bean) throws Exception {
+		String[] sqls = new String[2];
+		String[][] params = new String[2][];
+		// TODO: handle exception
+		sqls[0] = "{{insertSql}}";
+		params[0] = new String[] { {{beanValue}} };
+		
+		// TODO: handle exception
+		Object[] obj = LogUtil.getOptParam(DBFacade.getInstance().getID(), bean
+				.getOptId(), bean.getOptName(), "{{moduleName}}添加", "{{addOptRemark}}");
+		sqls[1] = (String) obj[0];
+		params[1] = (String[]) obj[1];
+		DBFacade.getInstance().execute(sqls, params);
+	}
+	
+	public Map<String, Object> edit{{domainName}}({{domainName}} bean) throws Exception {
+		String[] sqls = new String[2];
+		String[][] params = new String[2][];
+		// TODO: handle exception
+		sqls[0] = "{{updateSql}}";
+		params[0] = new String[] { {{beanValue}} };
+		
+		// TODO: handle exception
+		Object[] obj = LogUtil.getOptParam(DBFacade.getInstance().getID(), bean
+				.getOptId(), bean.getOptName(), "{{moduleName}}修改", "{{editOptRemark}}");
+		sqls[1] = (String) obj[0];
+		params[1] = (String[]) obj[1];
+		
+		DBFacade.getInstance().execute(sqls, params);
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+		map.put("msg", "true");
+		return map;
+	}
+
+	public Map<String, Object> del{{domainName}}({{domainName}} bean) {
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+		String[] sqls = new String[2];
+		String[][] params = new String[2][];
+
+		// TODO: handle exception
+		sqls[0] = "{{deleteSql}}";
+		params[0] = new String[] { {{domainPri}} };
+
+		// TODO: handle exception
+		Object[] obj = LogUtil.getOptParam(DBFacade.getInstance().getID(), bean
+				.getOptId(), bean.getOptName(), "{{moduleName}}删除", "{{delOptRemark}}");
+		sqls[1] = (String) obj[0];
+		params[1] = (String[]) obj[1];
+
+		DBFacade.getInstance().execute(sqls, params);
+		map.put("msg", "true");
+		return map;
+	}
+
+	public Map<String, Object> get{{domainName}}ById(String {{priColumn}}) throws Exception {
+		String sql = "{{getByIdSql}}";
+		CachedRowSetImpl crs = DBFacade.getInstance().getRowSet(sql,
+				new String[] { {{priColumn}} });
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+		if (crs.next()) {
+			map.put("msg", "true");
+			{{domainName}} bean = new {{domainName}}();
+			{{listResult}}
+			map.put("record", bean);
+		} else {
+			map.put("msg", "noresult");
+		}
+		
+		return map;
+	}
+
+}

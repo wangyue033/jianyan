@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>	
+	<package name="pd" extends="struts-default" namespace="/pd">
+		<action name="*_*" class="com.dhcc.popedom.action.{1}Action" method="{1}_{2}">
+			<result name="{1}_{2}">/popedom/{1}/{1}_{2}.jsp</result>
+			<result name="tree_frame">/login/tree_frame.jsp</result>
+			<result name="toAction" type="redirectAction">{1}_list</result>
+			<result name="init_tree_frame">/popedom/init/tree_frame.jsp</result>
+		</action>
+	</package>
+</struts>

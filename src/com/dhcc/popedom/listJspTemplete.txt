@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+	String path = request.getContextPath();
+%>
+
+<html>
+  <head>
+	<link href="<%=path %>/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=path%>/js/jquery/jquery-0.min.js"></script>
+    <!--[if IE 8]>
+       <script src="<%=path%>/js/es5-shim.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="<%=path %>/js/angular.min-1.4.7.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/validate/validate_form.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/BaceSpaceDisabled.js"></script>
+	
+  </head>
+  
+<body class="bodybg" style="margin-left: 0px; margin-top: 0px; margin-right: 0px;">
+<div id="{{domainName}}_list" ng-app="{{domainName}}" ng-controller="{{domainName}}List">
+    <div class="topnomove">
+    	<div class="tabwai" >
+		  <ul class="tab3">
+			  {{myadd}}
+		  </ul>
+		  <div class="tab2">
+		    <div class="duig2"><span class="ku2" id="input1" >全部</span><span class="xl_anow" ng-click="click1();"></span>
+		       <div id="div1" class="xiala2">
+			      <ul class="ul3">
+					   <li ng-click="selectedThis('全部','');" >全部</li>
+					   {{selectLi}}
+			      </ul>
+		        </div>
+		     </div>
+		     <div class="cha1"><input ng-model="searchValue" id="searchValue" class="tian" type="text" ng-keydown="myenter()"/>
+		     <input name="button" class="search" type="button" ng-click="mysearch(searchValue)"/></div>
+		   </div>
+		</div>
+	</div>
+    <div class="tablecont">
+    	<table class="table-pop" style="width: 100%;" cellpadding="0" cellspacing="0">
+    		{{mytableth}}
+    		{{mytabletr}}
+    	</table>
+    </div>
+    <jsp:include flush="true" page="/js/page.jsp"></jsp:include>
+</div>
+<script type="text/javascript">
+$('.tablelist tbody tr:odd').addClass('odd');
+var path = '<%=path%>';
+var myMain = top.frames["outerFrame"].document.getElementById("myMain");
+myMain.rows = ("35,*");
+top.frames["outerFrame"].window.frames['locationFrame'].document.getElementById("location").innerHTML = "{{moduleName}}";
+
+$(document).click(function(){
+	if(document.getElementById("div1").style.display == 'block'){
+		document.getElementById("div1").style.display = "none";
+	}
+})
+</script>
+<script type="text/javascript" src="<%=path %>/{{packageName}}/{{domainName}}/{{domainName}}_list.js"></script>
+  </body>
+</html>

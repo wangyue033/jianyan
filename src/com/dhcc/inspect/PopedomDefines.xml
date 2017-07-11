@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="GB2312"?>
+<popedom-defines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PopedomDefines.xsd" >
+     <menus menu-name="监督抽查" menu-id="0600">
+		<modules module-name="计划任务" module-id="0601" module-ico="fa-bars">
+			<functions func-name="计划制定" func-uri="inspect/JdPlan_list.action" func-id="060101" func-ico="fa-caret-right" resource-id="JdPlan_list">
+				<popedoms popedom-id="JdPlan_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlan_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdPlan_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdPlan_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdPlan_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="任务制定" func-uri="inspect/JdPlanTask_list.action" func-id="060102" func-ico="fa-caret-right" resource-id="JdPlanTask_list">
+				<popedoms popedom-id="JdPlanTask_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlanTask_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdPlanTask_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdPlanTask_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdPlanTask_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdPlanTask_handle" popedom-name="下发"/>
+			</functions>
+			
+		</modules>	
+		<modules module-name="抽检方案审核" module-id="0602" module-ico="fa-calendar">
+			<functions func-name="抽检任务转办" func-uri="inspect/JdPlanTurn_list.action" func-id="060201" func-ico="fa-caret-right" resource-id="JdPlanTurn_list">
+				<popedoms popedom-id="JdPlanTurn_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlanTurn_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdPlanTurn_handle" popedom-name="转办"/>
+			</functions>
+			<functions func-name="抽检任务签收" func-uri="inspect/JdPlanHandle_list.action" func-id="060202" func-ico="fa-caret-right" resource-id="JdPlanHandle_list">
+				<popedoms popedom-id="JdPlanHandle_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlanHandle_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdPlanHandle_handle" popedom-name="签收"/>
+			</functions>
+			<functions func-name="实施方案上报" func-uri="inspect/JdPlanCase_list.action" func-id="060203" func-ico="fa-caret-right" resource-id="JdPlanCase_list">
+				<popedoms popedom-id="JdPlanCase_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlanCase_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdPlanCase_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdPlanCase_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdPlanCase_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdPlanCase_submit" popedom-name="提交"/>
+				<popedoms popedom-id="JdPlanCase_issue" popedom-name="下发"/>
+			</functions>
+			<functions func-name="抽检方案审核" func-uri="inspect/JdPlanCaseCheck_list.action" func-id="060204" func-ico="fa-caret-right" resource-id="JdPlanCaseCheck_list">
+				<popedoms popedom-id="JdPlanCaseCheck_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdPlanCaseCheck_check" popedom-name="审核"/>
+				<popedoms popedom-id="JdPlanCaseCheck_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdPlanCaseCheck_total" popedom-name="抽检任务汇总"/>
+			</functions>
+		</modules>	
+		<modules module-name="抽检任务下达" module-id="0603" module-ico="fa-creative-commons">
+			<functions func-name="抽样任务下发" func-uri="inspect/JdSample_list.action" func-id="060301" func-ico="fa-caret-right" resource-id="JdSample_list">
+				<popedoms popedom-id="JdSample_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSample_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdSample_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdSample_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdSample_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdSample_issue" popedom-name="下发"/>
+			</functions>
+			<functions func-name="抽样任务签收" func-uri="inspect/JdSampleSign_list.action" func-id="060302" func-ico="fa-caret-right" resource-id="JdSampleSign_list">
+				<popedoms popedom-id="JdSampleSign_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSampleSign_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdSampleSign_sign" popedom-name="签收"/>
+				<popedoms popedom-id="JdSampleSign_edit" popedom-name="修改"/>
+			</functions>
+			 <functions func-name="上传抽样信息" func-uri="inspect/JdSampleBase_list.action" func-id="060303" func-ico="fa-caret-right" resource-id="JdSampleBase_list">
+				<popedoms popedom-id="JdSampleBase_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSampleBase_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdSampleBase_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdSampleBase_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdSampleBase_detail" popedom-name="预览"/>
+			</functions> 
+			<functions func-name="抽样单录入" func-uri="inspect/JdSampleBillEntry_list.action" func-id="060304" func-ico="fa-caret-right" resource-id="JdSampleBillEntry_list">
+				<popedoms popedom-id="JdSampleBillEntry_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSampleBillEntry_addbill" popedom-name="新增"/>
+			</functions> 
+			<functions func-name="抽样单管理" func-uri="inspect/JdSampleBill_list.action" func-id="060305" func-ico="fa-caret-right" resource-id="JdSampleBill_list">
+				<popedoms popedom-id="JdSampleBill_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSampleBill_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdSampleBill_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdSampleBill_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdSampleBill_submit" popedom-name="提交"/>
+			</functions>
+			<functions func-name="抽样单审核" func-uri="inspect/JdSampleBillCheck_list.action" func-id="060306" func-ico="fa-caret-right" resource-id="JdSampleBillCheck_list">
+				<popedoms popedom-id="JdSampleBillCheck_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdSampleBillCheck_shenhe" popedom-name="审核"/>
+				<popedoms popedom-id="JdSampleBillCheck_detail" popedom-name="预览"/>
+			</functions> 
+			<functions func-name="检验任务分派" func-uri="inspect/JdInspectHandle_list.action" func-id="060307" func-ico="fa-caret-right" resource-id="JdInspectHandle_list">
+				<popedoms popedom-id="JdInspectHandle_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectHandle_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdInspectHandle_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdInspectHandle_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdInspectHandle_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdInspectHandle_fenpai" popedom-name="分派"/>
+			</functions>
+			<functions func-name="检验任务签收" func-uri="inspect/JdInspectHandleSign_list.action" func-id="060308" func-ico="fa-caret-right" resource-id="JdInspectHandleSign_list">
+				<popedoms popedom-id="JdInspectHandleSign_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectHandleSign_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdInspectHandleSign_sign" popedom-name="签收"/>
+			</functions>
+		</modules>	
+		<modules module-name="检验任务管理" module-id="0604" module-ico="fa-balance-scale">
+			<!--<functions func-name="检验模板编制" func-uri="inspect/JdInspectTemplet_list.action" func-id="060401" func-model="div" resource-id="JdInspectTemplet_list">
+				<popedoms popedom-id="JdInspectTemplet_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectTemplet_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdInspectTemplet_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdInspectTemplet_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdInspectTemplet_detail" popedom-name="预览"/>
+			</functions>-->
+			<functions func-name="检验数据填报" func-uri="inspect/JdInspectData_list.action" func-id="060402" func-ico="fa-caret-right" resource-id="JdInspectData_list">
+				<popedoms popedom-id="JdInspectData_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectData_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdInspectData_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdInspectData_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdInspectData_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdInspectData_submit" popedom-name="提交"/>
+			</functions>
+			<functions func-name="检验数据审核" func-uri="inspect/JdInspectDataCheck_list.action" func-id="060403" func-ico="fa-caret-right" resource-id="JdInspectDataCheck_list">
+				<popedoms popedom-id="JdInspectDataCheck_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectDataCheck_check" popedom-name="审核"/>
+				<popedoms popedom-id="JdInspectDataCheck_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="检验报告编制" func-uri="inspect/JdInspectReport_list.action" func-id="060404" func-ico="fa-caret-right" resource-id="JdInspectReport_list">
+				<popedoms popedom-id="JdInspectReport_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectReport_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdInspectReport_create" popedom-name="生成报告"/>
+				<popedoms popedom-id="JdInspectReport_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdInspectReport_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdInspectReport_detail" popedom-name="预览"/>
+				<popedoms popedom-id="JdInspectReport_submit" popedom-name="提交"/>
+			</functions>
+			<functions func-name="检验报告管理" func-uri="inspect/JdInspectReportManage_list.action" func-id="060405" func-ico="fa-caret-right" resource-id="JdInspectReportManage_list">
+				<popedoms popedom-id="JdInspectReportManage_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectReportManage_uploads" popedom-name="复检上传"/>
+				<popedoms popedom-id="JdInspectReportManage_upload" popedom-name="外送上传"/>
+				<popedoms popedom-id="JdInspectReportManage_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdInspectReportManage_tovoid" popedom-name="作废"/>
+			</functions>
+			<functions func-name="检验报告审核" func-uri="inspect/JdInspectReportCheck_list.action" func-id="060406" func-ico="fa-caret-right" resource-id="JdInspectReportCheck_list">
+				<popedoms popedom-id="JdInspectReportCheck_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectReportCheck_check" popedom-name="审核"/>
+				<popedoms popedom-id="JdInspectReportCheck_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="检验报告签发" func-uri="inspect/JdInspectReportAssigned_list.action" func-id="060407" func-ico="fa-caret-right" resource-id="JdInspectReportAssigned_list">
+				<popedoms popedom-id="JdInspectReportAssigned_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectReportAssigned_Assigned" popedom-name="签发"/>
+				<popedoms popedom-id="JdInspectReportAssigned_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="检验报告打印" func-uri="inspect/JdInspectReportPrint_list.action" func-id="060408" func-ico="fa-caret-right" resource-id="JdInspectReportPrint_list">
+				<popedoms popedom-id="JdInspectReportPrint_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdInspectReportPrint_Print" popedom-name="打印"/>
+				<popedoms popedom-id="JdInspectReportPrint_detail" popedom-name="预览"/>
+			</functions>
+		</modules>	
+		<modules module-name="基础业务设置" module-id="0605" module-ico="fa-gears">
+			<functions func-name="产品分类信息" func-uri="inspect/ProductType_list.action" func-id="060501" func-ico="fa-caret-right" resource-id="ProductType_list">
+				<popedoms popedom-id="ProductType_list" popedom-name="查询"/>
+				<popedoms popedom-id="ProductType_add" popedom-name="新增"/>
+				<popedoms popedom-id="ProductType_edit" popedom-name="修改"/>
+				<popedoms popedom-id="ProductType_delete" popedom-name="删除"/>
+				<popedoms popedom-id="ProductType_detail" popedom-name="预览"/>
+			</functions> 
+			<functions func-name="产品检测标准" func-uri="inspect/JdProductStandard_init.action" func-id="060502" func-ico="fa-caret-right" resource-id="JdProductStandard_init">
+				<popedoms popedom-id="JdProductStandard_init" popedom-name="查询"/>
+				<popedoms popedom-id="JdProductStandard_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdProductStandard_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdProductStandard_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdProductStandard_detail" popedom-name="预览"/>
+			</functions> 
+			<functions func-name="产品检测项目" func-uri="inspect/ProductItem_init.action" func-id="060503" func-ico="fa-caret-right" resource-id="ProductItem_init">
+				<popedoms popedom-id="ProductItem_init" popedom-name="查询"/>
+				<popedoms popedom-id="ProductItem_add" popedom-name="新增"/>
+				<popedoms popedom-id="ProductItem_edit" popedom-name="修改"/>
+				<popedoms popedom-id="ProductItem_delete" popedom-name="删除"/>
+				<popedoms popedom-id="ProductItem_detail" popedom-name="预览"/>
+			</functions> 
+			<!-- 
+			<functions func-name="区域信息" func-uri="inspect/JdAreaInfo_list.action" func-id="060504" func-model="div" resource-id="JdAreaInfo_list">
+				<popedoms popedom-id="JdAreaInfo_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdAreaInfo_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdAreaInfo_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdAreaInfo_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdAreaInfo_detail" popedom-name="预览"/>
+			</functions>
+			 -->
+			<functions func-name="企业基础信息" func-uri="inspect/JdComp_list.action" func-id="060505" func-ico="fa-caret-right" resource-id="JdComp_list">
+				<popedoms popedom-id="JdComp_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdComp_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdComp_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdComp_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdComp_detail" popedom-name="预览"/>
+			</functions>		
+			<functions func-name="企业产品信息" func-uri="inspect/JdProductInfo_list.action" func-id="060506" func-ico="fa-caret-right" resource-id="JdProductInfo_list">
+				<popedoms popedom-id="JdProductInfo_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdProductInfo_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdProductInfo_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdProductInfo_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdProductInfo_detail" popedom-name="预览"/>
+			</functions>
+			<!-- <functions func-name="检测机构专业类别" func-uri="inspect/ZhLabMajor_list.action" func-id="060507" func-ico="fa-caret-right" resource-id="ZhLabMajor_list">
+				<popedoms popedom-id="ZhLabMajor_list" popedom-name="查询"/>
+				<popedoms popedom-id="ZhLabMajor_add" popedom-name="新增"/>
+				<popedoms popedom-id="ZhLabMajor_edit" popedom-name="修改"/>
+				<popedoms popedom-id="ZhLabMajor_delete" popedom-name="删除"/>
+				<popedoms popedom-id="ZhLabMajor_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="检测机构信息" func-uri="inspect/ZhLabInsti_list.action" func-id="060508" func-ico="fa-caret-right" resource-id="ZhLabInsti_list">
+				<popedoms popedom-id="ZhLabInsti_list" popedom-name="查询"/>
+				<popedoms popedom-id="ZhLabInsti_add" popedom-name="新增"/>
+				<popedoms popedom-id="ZhLabInsti_edit" popedom-name="修改"/>
+				<popedoms popedom-id="ZhLabInsti_delete" popedom-name="删除"/>
+				<popedoms popedom-id="ZhLabInsti_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="检测机构人员信息" func-uri="inspect/ZhLabEmployee_init.action" func-id="060509" func-ico="fa-caret-right" resource-id="ZhLabEmployee_init">
+				<popedoms popedom-id="ZhLabEmployee_init" popedom-name="查询"/>
+				<popedoms popedom-id="ZhLabEmployee_add" popedom-name="新增"/>
+				<popedoms popedom-id="ZhLabEmployee_edit" popedom-name="修改"/>
+				<popedoms popedom-id="ZhLabEmployee_delete" popedom-name="删除"/>
+				<popedoms popedom-id="ZhLabEmployee_detail" popedom-name="预览"/>
+			</functions> -->
+			
+		</modules>	
+	</menus>
+</popedom-defines>

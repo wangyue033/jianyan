@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="upload" extends="struts-default" namespace="/upload">
+		<action name="Upload_file" class="com.dhcc.uploadFile.UploadFileAction">
+			<result name="success">/uploadFile/uploadFile.jsp</result>
+		</action>
+		<action name="Upload_outfile" class="com.dhcc.uploadFile.UploadFileAction">
+			<result name="success">/uploadFile/uploadOutFile.jsp</result>
+		</action>
+		
+		<action name="Drop_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Drop_upload">
+			<result name="success">/uploadFile/Drop_upload.jsp</result>
+		</action>
+		
+		<action name="DropOut_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Drop_upload">
+			<result name="success">/uploadFile/DropOut_upload.jsp</result>
+		</action>
+		
+		<action name="Scene_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Drop_upload">
+			<result name="success">/uploadFile/Scene_upload.jsp</result>
+		</action>
+		
+		<action name="Photo_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Drop_upload">
+			<result name="success">/uploadFile/Photo_upload.jsp</result>
+		</action>
+		
+		<action name="Sign_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Sign_upload">
+			<result name="success">/uploadFile/Sign_upload.jsp</result>
+		</action>
+		
+		<action name="Signature_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Sign_upload">
+			<result name="success">/uploadFile/Signature_upload.jsp</result>
+		</action>
+		
+		<action name="Report_upload" class="com.dhcc.uploadFile.UploadFileAction" method="Report_upload">
+			<result name="success">/uploadFile/Report_upload.jsp</result>
+		</action>
+		
+		<action name="LegalUpload_file" class="com.dhcc.uploadFile.LegalUploadFileAction">
+			<result name="success">/uploadFile/legalUploadFile.jsp</result>
+		</action>
+		<action name="Import_file" class="com.dhcc.uploadFile.ImportFileAction">
+		</action>
+		
+		<action name="Download_file" class="com.dhcc.uploadFile.DownloadFileAction">
+			<result name="success" type="stream">  
+               <param name="contentType">text/plain</param>  
+               <param name="contentDisposition">attachment;fileName="${fileName}"</param>  
+               <param name="inputName">downloadFile</param>  
+               <param name="bufferSize">1024</param>  
+           </result>
+		</action>
+	</package>
+</struts>

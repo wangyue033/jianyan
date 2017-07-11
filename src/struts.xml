@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>	
+	<!-- 整合spring
+	<constant name="struts.objectFactory" value="spring"/>	
+	 -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>	
+	<constant name="struts.ui.theme" value="simple"/>	
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.multipart.maxSize" value="20971520000"/><!--ljh:设置文件上传的最大文件大小-->
+	<!-- 
+	<package name="utils" extends="struts-default" namespace="/utils">
+		<action name="autoComplet" class="com.dhcc.utils.auto.AutoCompleAction"></action>
+	</package>
+	<package name="utilsjson" extends="json-default" namespace="/utils">
+		<action name="custAjax" class="com.dhcc.utils.cust.CustAjaxAction">
+			<result type="json"></result>
+		</action>
+	</package>
+	 -->
+    <include file="/com/dhcc/login/struts-login.xml"/>
+    <include file="/com/dhcc/popedom/struts-popedom.xml"/>
+    <include file="/com/dhcc/inspect/struts-inspect.xml"/>
+     <include file="/com/dhcc/uploadFile/struts-uploadFile.xml"/>
+	<!--
+    <include file="/com/dhcc/executive/struts-executive.xml"/>
+    <include file="/com/dhcc/suggest/struts-suggest.xml"/>
+    <include file="/com/dhcc/matter/struts-matter.xml"/>
+	-->
+    
+    <!-- 
+    <include file="/com/dhcc/desk/struts-desk.xml"/>
+    <include file="/com/dhcc/executive/struts-executive.xml"/>
+    <include file="/com/dhcc/supervise/struts-supervise.xml"/>
+    <include file="/com/dhcc/legal/struts-legal.xml"/>
+    <include file="/com/dhcc/power/struts-power.xml"/>
+    <include file="/com/dhcc/credit/struts-credit.xml"/>
+    <include file="/com/dhcc/warn/struts-warn.xml"/>
+    <include file="/com/dhcc/analyse/struts-analyse.xml"/>
+    <include file="/com/dhcc/ordinary/struts-ordinary.xml"/>
+    <include file="/com/dhcc/simple/struts-simple.xml"/>
+    <include file="/com/dhcc/prove/struts-prove.xml"/>
+    
+     -->
+</struts>

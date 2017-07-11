@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SqlValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SqlValues.xsd">
+	<Group GroupLeader="zhurx" ContactMail="zhurongxiang@dhcc.com.cn" ModuleName="popedom" GroupName="init.Popedom">
+		<SqlItem ItemID="del_rs_map"><![CDATA[delete from p_rs_map]]></SqlItem>
+		<SqlItem ItemID="del_popedom"><![CDATA[delete from p_popedom]]></SqlItem>
+		<SqlItem ItemID="del_func"><![CDATA[delete from p_func]]></SqlItem>
+		<SqlItem ItemID="del_module"><![CDATA[delete from p_module]]></SqlItem>
+		<SqlItem ItemID="del_menu"><![CDATA[delete from p_menu]]></SqlItem>
+		<SqlItem ItemID="del_re_map"><![CDATA[delete from p_re_map]]></SqlItem>
+		<SqlItem ItemID="del_role"><![CDATA[delete from p_role]]></SqlItem>
+		<SqlItem ItemID="insert_menu"><![CDATA[insert into p_menu (menu_id, menu_name) values (?, ?)]]></SqlItem>
+		<SqlItem ItemID="insert_module"><![CDATA[insert into p_module (module_id, module_name,menu_id,is_valid,module_ico) values (?,?,?,?,?)]]></SqlItem>
+		<SqlItem ItemID="insert_func"><![CDATA[insert into p_func (func_id, func_name, func_url, module_id,resource_id,is_valid,func_ico) values (?,?,?,?,?,?,?)]]></SqlItem>
+		<SqlItem ItemID="insert_popedom"><![CDATA[insert into p_popedom (popedom_id, popedom_name, resource_id,func_id) values (?,?,?,?)]]></SqlItem>
+		<SqlItem ItemID="insert_rs_map"><![CDATA[insert into p_rs_map (rs_id, role_id, popedom_id, remark) values (?,?,?,?)]]></SqlItem>
+		<SqlItem ItemID="insert_role"><![CDATA[insert into p_role (role_id,role_name,remark,can_modify) values(?,?,?,?)]]></SqlItem>
+		<SqlItem ItemID="insert_re_map"><![CDATA[insert into p_re_map (re_id,employee_id, role_id,remark) values(?,?,?,?)]]></SqlItem>		
+	</Group>
+	<Group GroupLeader="zhurx" ContactMail="zhurongxiang@dhcc.com.cn" ModuleName="popedom" GroupName="Role.Accredit">
+		<SqlItem ItemID="get_menu"><![CDATA[select menu_id,menu_name from p_menu where 1 = 1 and is_valid = '1' order by menu_id]]></SqlItem>
+		<SqlItem ItemID="get_moduleByMenuId"><![CDATA[select * from p_module where is_valid = '1' and menu_id=?]]></SqlItem>
+		<SqlItem ItemID="get_moduleById"><![CDATA[select * from p_module where module_id=?]]></SqlItem>
+		<SqlItem ItemID="get_funcByModuleId"><![CDATA[select * from p_func where module_id=?]]></SqlItem>
+		<SqlItem ItemID="get_popedomByFuncId"><![CDATA[select * from p_popedom where func_id=?]]></SqlItem>
+		<SqlItem ItemID="get_popedomByPopedomSortId"><![CDATA[select * from p_popedom where p_popedom.popedom_id in (select p_sp_map.popedom_id from p_sp_map where p_sp_map.popedom_sort_id=?)]]></SqlItem>
+	</Group>
+	<Group GroupLeader="zhurx" ContactMail="zhurx@dhcc.com.cn" ModuleName="popedom" GroupName="com.dhcc.popedom.action.RoleAction">
+		<SqlItem ItemID="get_psByRoleId"><![CDATA[select * from p_popedom_sort where popedom_sort_id in(select popedom_sort_id from p_rs_map where role_id=?)]]></SqlItem>
+		<SqlItem ItemID="delete_rsMapByRoleId"><![CDATA[delete from p_rs_map where ROLE_ID=?]]></SqlItem>
+		<SqlItem ItemID="insert_rsMap"><![CDATA[insert into P_RS_MAP (RS_ID,ROLE_ID,POPEDOM_ID,REMARK) values (?,?,?,?)]]></SqlItem>
+	</Group>
+	
+</SqlValues>

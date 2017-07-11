@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+
+<%
+	String path=request.getContextPath();
+%>
+<html>
+<head>
+	<link href="<%=path %>/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<%=path%>/js/jquery/jquery-0.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/BaceSpaceDisabled.js"></script>
+     <!--[if IE 8]>
+       <script src="<%=path%>/js/es5-shim.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="<%=path %>/js/angular.min-1.4.7.js"></script>
+</head>
+<body class="bodybg">
+	<div class="tableDiv1" ng-app="{{domainName}}" ng-controller="Detail">
+	  <table class="detailTable" cellpadding="0" cellspacing="0" border="0">
+	  	<tr style="height:30px;">
+			<td class="msg" colspan="4">
+				{{msgInfo}}
+			</td>
+		</tr>
+		{{tableList}}
+	  </table>
+	  <div class="layer-bottom">
+		<div class="div-bottom">
+	       	<input type="button" id="btnmyclose" class="button3" ng-click="myclose()" value="关闭" />
+		</div>
+	  </div>
+	</div>
+	 <script type="text/javascript">
+var {{domainName}}s = angular.module('{{domainName}}', []);
+{{domainName}}s.controller('Detail', function($scope, $http) {
+	$scope.myclose = function() {
+       var index = parent.layer.getFrameIndex(window.name);
+	   parent.layer.close(index);
+    }
+
+    $scope.{{priKey}} = '${{{priKey}}}';
+	$scope.url = "<%=path%>/{{namespace}}/{{domainName}}_detail.action?oper=1&{{priKey}}="+$scope.{{priKey}};
+	$http.post($scope.url).success(function(data){
+        var msg = data.msg;
+        if(msg == "true"){
+        	$scope.{{domainList}} = data.record;
+        }else if(msg == "norecord"){
+        	$scope.msgInfo = data.msgInfo;
+        }
+    });
+})
+</script>
+</body>
+</html>

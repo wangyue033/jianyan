@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+String path = request.getContextPath();
+%>
+
+<html>
+  <head>
+    <link href="<%=path %>/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<%=path%>/js/jquery/jquery-0.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/angular.min-1.4.7.js"></script>
+  </head>
+  
+<body class="tableBody" ng-app="{{domainName}}s" ng-controller="Delete">
+<form ng-submit="processForm()" name="myForm" id="myForm" >
+	<table class="delTable" cellpadding="10" cellspacing="5" border="0">
+		<tr ng-hide="visiblet">
+			<td class="info">
+				确认删除【<s:property value="{{priColumn}}"/>】的{{moduleName}}吗？
+				<input type="hidden" value="${{{priColumn}} }" ng-model="{{priColumn}}"/>
+			</td>
+		</tr>
+		<tr ng-hide="visiblem">
+			<td class="msg">
+				<B>{{msgInfo}}</B>
+			</td>
+		</tr>
+	</table>
+	<div class="layer-bottom">
+		<div class="div-bottom">
+			<input type="submit" id="btnmysave" class="{{mybutton}} button1" ng-disabled="mydisabled" value="确定"/>
+	       	<input type="button" id="btnmyclose" class="button3" ng-click="myclose()" value="关闭" />
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+var {{domainName}}s = angular.module('{{domainName}}s', []);
+{{domainName}}s.controller('Delete', function($scope, $http) {
+	$scope.visiblem=true;
+	$scope.myclose = function() {
+        var index = parent.layer.getFrameIndex(window.name);
+		parent.layer.close(index);
+    }
+	$scope.{{priColumn}} = '${{{priColumn}}}';
+	$scope.processForm= function(){
+		$http.post('<%=path %>/{{namespace}}/{{domainName}}_del.action?oper=1&{{priColumn}}='+$scope.{{priColumn}}).success(function(data){
+			var msg = data.msg;
+			if(msg == "true"){
+				var listWin = window.parent.document.getElementById("outerFrame").contentWindow.document.getElementById("mainFrame");
+				
+				var scope = listWin.contentWindow.angular.element('#{{domainName}}_list').scope();
+				scope.searchList();
+				
+				$scope.mydisabled=true;
+				$scope.visiblet=true;
+				$scope.visiblem=false;
+				$scope.msgInfo = data.msgInfo;
+				$scope.mybutton = "hui-but";
+			}else{
+				$scope.visiblet=true;
+				$scope.visiblem=false;
+				$scope.msgInfo = data.msgInfo;
+			}
+	    });
+	}
+})
+
+</script>
+</body>
+</html>

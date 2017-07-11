@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="login" extends="struts-default">
+		<action name="login_in" class="com.dhcc.login.LoginAction" method="login_in">
+			<result name="success">/login/success.jsp</result>
+			<result name="error">/login/index.jsp</result>
+			<result name="init_success">/popedom/init/success.jsp</result>
+			<result name="toAction" type="redirectAction">success</result>
+		</action>
+		<action name="login_*" class="com.dhcc.login.LoginAction" method="login_{1}">
+			<result name="login_{1}">/{1}/frame/main.jsp</result>
+		</action>
+		<action name="success" class="com.dhcc.login.LoginAction" method="success">
+			<result name="success">/login/success.jsp</result>
+			<result name="error">/login/index.jsp</result>
+		</action>
+		<action name="login_out" class="com.dhcc.login.LoginAction" method="login_out">
+			<result name="success">/login/index.jsp</result>
+			<result name="error">/success.jsp</result>
+		</action>
+		<action name="login_menu" class="com.dhcc.login.LoginAction" method="login_menu">
+			<result name="success">/login/menu.jsp</result>
+			<result name="error">/login/error.jsp</result>
+		</action>
+		<action name="show_online" class="com.dhcc.login.LoginAction" method="show_online">
+			<result name="show_online">/login/show_online.jsp</result>
+		</action>
+		<action name="show_task" class="com.dhcc.login.LoginAction" method="show_task">
+			<result name="show_task">/login/task/show_task.jsp</result>
+		</action>
+		<action name="ifm_task" class="com.dhcc.login.LoginAction" method="ifm_task">
+			<result name="ifm_task">/login/task/ifm_task.jsp</result>
+		</action>
+		<action name="change_password" class="com.dhcc.login.LoginAction" method="change_password">
+			<result name="success">/login/change_password.jsp</result>
+		</action>
+		<!-- 
+		<action name="noticeInfo" class="com.dhcc.login.NoticeInfoAction"></action>
+		 -->
+		<action name="working_platform" class="com.dhcc.login.LoginAction" method="working_platform">
+			<result name="success">/login/working_platform.jsp</result>
+		</action>
+	</package>
+	
+	
+</struts>

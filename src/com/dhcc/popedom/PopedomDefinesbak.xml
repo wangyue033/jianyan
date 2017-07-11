@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="GB2312"?>
+<popedom-defines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PopedomDefines.xsd" author="zhurx" Mail="zhurongxiang@dhcc.com.cn">
+     <menus menu-name="系统管理" menu-id="0200">
+     	<modules module-name="参数管理" module-id="0201" module-ico="fa-tag">
+			<functions func-name="区域信息" func-uri="inspect/JdAreaInfo_list.action" func-id="020101" func-ico="fa-glass" resource-id="JdAreaInfo_list">
+				<popedoms popedom-id="JdAreaInfo_list" popedom-name="查询"/>
+				<popedoms popedom-id="JdAreaInfo_add" popedom-name="新增"/>
+				<popedoms popedom-id="JdAreaInfo_edit" popedom-name="修改"/>
+				<popedoms popedom-id="JdAreaInfo_delete" popedom-name="删除"/>
+				<popedoms popedom-id="JdAreaInfo_detail" popedom-name="预览"/>
+			</functions>
+			<functions func-name="机构信息" func-uri="pd/Comp_list.action" func-id="020103" func-ico="fa-music" resource-id="Comp_list">
+				<popedoms popedom-id="Comp_list" popedom-name="查询"/>
+				<popedoms popedom-id="Comp_add" popedom-name="新增"/>
+				<popedoms popedom-id="Comp_edit" popedom-name="修改"/>
+				<popedoms popedom-id="Comp_tree" popedom-name="组织结构"/>
+			</functions>
+			<functions func-name="部门信息" func-uri="pd/Dept_list.action" func-id="020106" func-ico="fa-star" resource-id="Dept_list">
+				<popedoms popedom-id="Dept_list" popedom-name="查询"/>
+				<popedoms popedom-id="Dept_add" popedom-name="新增"/>
+				<popedoms popedom-id="Dept_edit" popedom-name="修改"/>
+				<popedoms popedom-id="Dept_del" popedom-name="删除"/>
+				<popedoms popedom-id="Dept_detail" popedom-name="详细信息"/>
+			</functions>
+			<functions func-name="职位信息" func-uri="pd/Job_list.action" func-id="020108" func-ico="fa-user" resource-id="Job_list">
+				<popedoms popedom-id="Job_list" popedom-name="查询"/>
+				<popedoms popedom-id="Job_add" popedom-name="新增"/>
+				<popedoms popedom-id="Job_edit" popedom-name="修改"/>
+				<popedoms popedom-id="Job_del" popedom-name="删除"/>
+				<popedoms popedom-id="Job_detail" popedom-name="详细信息"/>
+			</functions>
+		</modules>
+		<modules module-name="权限管理" module-id="0202" module-ico="fa-lock">
+			<functions func-name="系统员工管理" func-uri="pd/User_init.action" func-id="020201" func-ico="fa-film" resource-id="User_init">
+				<popedoms popedom-id="User_init" popedom-name="查询"/>
+				<popedoms popedom-id="User_add" popedom-name="新增"/>
+				<popedoms popedom-id="User_edit" popedom-name="修改"/>
+			</functions>
+			<functions func-name="系统角色管理" func-uri="pd/Role_list.action" func-id="020204" func-ico="fa-signal" resource-id="Role_list">
+				<popedoms popedom-id="Role_list" popedom-name="查询"/>
+				<popedoms popedom-id="Role_add" popedom-name="新增"/>
+				<popedoms popedom-id="Role_edit" popedom-name="修改"/>
+				<popedoms popedom-id="Role_del" popedom-name="删除"/>
+				<popedoms popedom-id="Role_accredit" popedom-name="角色授权"/>
+				<popedoms popedom-id="Role_detail" popedom-name="角色权限"/>
+			</functions>
+			<functions func-name="管理员授权" func-uri="pd/PopedomAdmin_init.action" func-id="020206" func-ico="fa-pencil" resource-id="PopedomAdmin_init">
+				<popedoms popedom-id="PopedomAdmin_init" popedom-name="查询"/>
+				<popedoms popedom-id="PopedomAdmin_addUser" popedom-name="添加用户到角色"/>
+				<popedoms popedom-id="PopedomAdmin_delUser" popedom-name="从角色删除用户"/>
+			</functions>
+			<functions func-name="员工管理" func-uri="pd/DeptUser_init.action" func-id="020208" func-ico="fa-th" resource-id="DeptUser_init">
+				<popedoms popedom-id="DeptUser_init" popedom-name="查询"/>
+				<popedoms popedom-id="DeptUser_add" popedom-name="新增"/>
+				<popedoms popedom-id="DeptUser_edit" popedom-name="修改"/>
+			</functions>
+			<functions func-name="密码管理" func-uri="pd/Pwd_init.action" func-id="020210" func-ico="fa-check" resource-id="Pwd_init">
+				<popedoms popedom-id="Pwd_init" popedom-name="查询"/>
+				<popedoms popedom-id="Pwd_resetpwd" popedom-name="重置密码"/>
+			</functions>
+			<functions func-name="角色管理" func-uri="pd/DeptRole_list.action" func-id="020212" func-ico="fa-gear" resource-id="DeptRole_list">
+				<popedoms popedom-id="DeptRole_list" popedom-name="查询"/>
+				<popedoms popedom-id="DeptRole_add" popedom-name="新增"/>
+				<popedoms popedom-id="DeptRole_edit" popedom-name="修改"/>
+				<popedoms popedom-id="DeptRole_del" popedom-name="删除"/>
+				<popedoms popedom-id="DeptRole_accredit" popedom-name="角色授权"/>
+				<popedoms popedom-id="DeptRole_detail" popedom-name="角色权限"/>
+			</functions>
+			<functions func-name="功能权限" func-uri="pd/Popedom_init.action" func-id="020214" func-ico="fa-pencil" resource-id="Popedom_init">
+				<popedoms popedom-id="Popedom_init" popedom-name="查询"/>
+				<popedoms popedom-id="Popedom_addUser" popedom-name="添加用户到角色"/>
+				<popedoms popedom-id="Popedom_delUser" popedom-name="从角色删除用户"/>
+			</functions>
+			<functions func-name="授权日志" func-uri="pd/AuthLog_list.action" func-id="020216" func-ico="fa-adjust" resource-id="AuthLog_list">
+				<popedoms popedom-id="AuthLog_list" popedom-name="查询"/>
+			</functions>
+			<functions func-name="操作日志" func-uri="pd/OptLog_list.action" func-id="020218" func-ico="fa-tint" resource-id="OptLog_list">
+				<popedoms popedom-id="OptLog_list" popedom-name="查询"/>
+			</functions>
+			<functions func-name="用户登陆日志" func-uri="pd/UserLog_list.action" func-id="020219" func-ico="fa-arrows" resource-id="UserLog_list">
+				<popedoms popedom-id="UserLog_list" popedom-name="查询"/>
+			</functions>
+		</modules>
+	</menus>
+</popedom-defines>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+String path = request.getContextPath();
+String result = (String) request.getAttribute("result");
+%>
+
+<html>
+  <head>
+    <title>My JSP '{{domainName}}_add.jsp' starting page</title>
+    <link href="<%=path %>/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<%=path%>/js/poshytip/poshytip.css" />
+	<script type="text/javascript" src="<%=path%>/js/jquery/jquery-0.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/angular.min-1.4.7.js"></script>
+    <script type="text/javascript" src="<%=path%>/js/poshytip/jquery.poshytip.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/validate/messages_cn.js"></script>
+<script type="text/javascript" src="<%=path%>/js/BaceSpaceDisabled.js"></script>
+<script>
+	$(document).ready(function(){
+	    $(':input[type!=select][type!=button][type!=checkbox][type!=radio][type!=submit]').focus(function () {	
+			if($(this).prop("readonly") == false) {
+				$(this).css("background", "#ffffdd"); 
+			}
+		});
+		$(':input[type!=select][type!=button][type!=checkbox][type!=radio][type!=submit]').blur(function () { 
+			$(this).css("background", "#ffffff"); 
+		});
+		$("#{{myforce}}").focus();
+	    $("#myForm").validate({
+		    rules: {
+			    {{ruleList}}
+		    }
+	    });
+	});
+</script>
+  </head>
+  <body class="bodybg">
+  <div ng-app="{{domainName}}" ng-controller="Save">
+    <form name="myForm" id="myForm" >
+	  <div class="tabtop"><font>{{moduleName}}基本信息</font></div>
+	  <table class="tableadd" cellpadding="0" cellspacing="0" border="0">
+	  	<tr style="height:30px;">
+			<td class="msg" colspan="2">
+				{{msgInfo}}
+			</td>
+		</tr>
+		{{tableList}}
+	  </table>
+	  <div class="tabbutton">
+		<input type="button" id="btnmysave" value="保存" ng-click="processForm()" tabindex="{{myindex}}" ng-disabled="mydisabled" class="{{mybutton}} button1"/>
+		<input type="button" id="btnmynext" value="继续" ng-click="mynext()" class="button2"/>
+       	<input type="button" id="btnmyclose" value="返回" ng-click="myback()" class="button3"/>
+	  </div>
+    </form>
+    </div>
+   <script type="text/javascript">
+var {{domainName}}s = angular.module('{{domainName}}', []);
+top.frames["outerFrame"].window.frames['locationFrame'].document.getElementById("location").innerHTML = "{{moduleName}}信息添加";
+{{domainName}}s.controller('Save', function($scope, $http) {
+	
+	$scope.myback = function() {
+        location.replace("{{domainName}}_list.action");
+    }
+    $scope.mynext = function() {
+    	document.location.href = "{{domainName}}_add.action";
+    }
+    $scope.{{domainList}}={};
+    $scope.processForm = function() {
+    	var flag = $("#myForm").valid();
+   		if(flag){
+			$http.post('<%=path%>/{{namespace}}/{{domainName}}_add.action?oper=1&'+$.param($scope.{{domainList}}))
+				.success(function(data) {
+				var msg = data.msg;
+				if(msg == "true"){
+					$scope.mydisabled=true;
+					$scope.msgInfo = data.msgInfo;
+					$scope.myreadonly = true;
+					$scope.mybutton = "hui-but";
+				}else{
+					$scope.msgInfo = data.msgInfo;
+				}
+			});
+		}
+	};
+})
+
+</script>
+  </body>
+</html>

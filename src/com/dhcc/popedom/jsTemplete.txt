@@ -1,0 +1,160 @@
+top.layer.load(2);
+var {{domainName}} = angular.module('{{domainName}}', []);
+{{domainName}}.controller('{{domainName}}List', function($scope, $http) {
+	$scope.curPage = 1;
+    $scope.count = 0;
+	$scope.perNumber = perNumber;
+    $scope.orderByType = orderByType;
+    $scope.searchField = '';
+    
+    $scope.searchList = function(){
+    	$scope.url = path + '/{{namespace}}/{{domainName}}_list.action?oper=1&curPage='+$scope.curPage
+	    	+'&perNumber='+$scope.perNumber+'&searchValue='+encodeURI($scope.searchValue)+'&searchField='+$scope.searchField
+	    	+'&orderByField='+$scope.orderByField+'&orderByType='+$scope.orderByType;
+	    $http.post($scope.url).success(function(data){
+	        $scope.{{domainList}} = data.record;
+	        $scope.count = data.totalRecord;
+	        $scope.totalPage = data.totalPage;
+	        $scope.reset();
+	    });
+    }
+    
+    $scope.searchList();
+    
+    $scope.myenter = function(){
+		var key = window.event.keyCode;
+		if(key == 13){
+			$scope.mysearch($scope.searchValue);
+		}
+    }
+
+    $scope.page = function (curPage) {
+   		if(!(checkNUM(''+curPage)&&curPage>0)){
+   			top.layer.alert('<b>调整页数输入格式不对！<b>', {skin: 'layui-layer-lan',closeBtn:0,icon:2});
+   			return;
+   		}else if(parseInt(curPage)>parseInt($scope.totalPage)){
+   			top.layer.alert('<b>输入页数不对！</b>', {skin: 'layui-layer-lan',closeBtn: 0,icon: 2});
+   			return;
+   		}
+    	top.layer.load(2);
+   		
+		if(curPage < 1){
+			$scope.curPage = 1;
+		}
+		else if(parseInt(curPage) > parseInt($scope.totalPage)){
+			$scope.curPage = $scope.totalPage;
+		}
+		else {
+			$scope.curPage = window.eval(curPage);
+		}
+		
+		$scope.searchList();
+    }
+    
+    $scope.add = function () {
+    	{{myadd}}
+    }
+		
+    $scope.changePerNumber = function(perNumber){
+    	if(checkNaN(perNumber)&&perNumber>0){
+    		top.layer.load(2);
+	    	$scope.curPage = 1;
+    		$scope.searchList();
+        }else{
+	       	alert("输入格式不对");
+	       	$('#perNumber').focus();
+        }
+    }
+    
+    $scope.myorder = function(orderByField){
+    	top.layer.load(2);
+    	var temp = "";
+    	$scope.orderByField = orderByField;
+    	if($scope.orderByType == "asc"){
+    		$scope.orderByType = "desc";
+    		temp = "aro2.png";
+    	}else{
+    		$scope.orderByType = "asc";
+    		temp = "aro3.png";
+    	}
+    	$("img[id$=Img]").attr("src",path+"/css/images/aro1.png");
+    	$("#"+orderByField+"Img").attr("src",path+"/css/images/"+temp);
+    	
+    	$scope.curPage = 1;
+    	
+    	$scope.searchList();
+    }
+    
+    $scope.mysearch = function(searchValue){
+    	if($scope.searchField || $scope.searchField == ''){
+	    	$scope.searchValue = searchValue;
+	    	$scope.searchList();
+    	}
+    }
+    
+    $scope.selectedThis = function(value1,searchField){
+    	$scope.searchField = searchField;
+    	document.getElementById("input1").innerHTML = value1;	 
+		document.getElementById("div1").style.display = "none";
+		document.getElementById("searchValue").value = '';
+		document.getElementById("searchValue").focus();
+    }
+    
+    $scope.click1 = function(){ 
+		if( document.getElementById("div1").style.display == "block" ){
+			document.getElementById("div1").style.display = "none" ;   
+		}else{ 
+			document.getElementById("div1").style.display = "block" ; 
+		}
+		var e = window.event;
+		e.stopPropagation();
+	}
+    
+    $scope.mydel = function({{domainPri}}){
+    	top.layer.open({
+			type: 2,
+			title: ['{{moduleName}}信息删除','font-size:15px;font-family: 微软雅黑;font-weight:bold;'],
+			shadeClose: true,
+			shade: 0.8,
+			area: ['450px', '200px'],
+			content: path+'/{{namespace}}/{{domainName}}_del.action?{{domainPri}}='+{{domainPri}}
+		});
+    }
+    
+    $scope.edit{{domainName}} = function({{domainPri}}){
+    	{{myedit}}
+    }
+    
+    $scope.mydetail = function({{domainPri}}){
+    	top.layer.open({
+			type: 2,
+			title: ['{{moduleName}}详细信息查看','font-size:15px;font-family: 微软雅黑;font-weight:bold;'],
+			shadeClose: true,
+			shade: 0.4,
+			area: ['580px', '350px'],
+			content: path+'/{{namespace}}/{{domainName}}_detail.action?{{domainPri}}='+{{domainPri}} //iframe的url
+		});
+    }
+    
+    $scope.reset = function(){
+    	top.layer.closeAll('loading');
+    	if($scope.curPage == 1){
+    		$scope.myfirst = true;
+    		$scope.firstBtn = "hui-but";
+    		$scope.preBtn = "hui-but";
+    	}else{
+    		$scope.myfirst = false;
+    		$scope.firstBtn = "";
+    		$scope.preBtn = "";
+    	}
+    	if($scope.totalPage == 0 || $scope.curPage == $scope.totalPage){
+    		$scope.mylast = true;
+    		$scope.lastBtn = "hui-but";
+    		$scope.nextBtn = "hui-but";
+    	}else{
+    		$scope.mylast = false;
+    		$scope.lastBtn = "";
+    		$scope.nextBtn = "";
+    	}
+    }
+});

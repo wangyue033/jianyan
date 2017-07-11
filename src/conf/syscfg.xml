@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<syscfg admin-id="0000" admin-account="admin" admin-cn="admin" admin-password="admin" admin-name="系统管理员" 
+	jndi-name="java:/comp/env/jdbc/SZJJJGProject">
+	<!--
+		Tomcat6 下：jndi-name="java:/comp/env/jdbc/TomcatProject"
+		MySQL数据库：jndi-name="java:/comp/env/jdbc/MySQLProject"
+	-->
+	<menus>
+		<!-- 
+		<menu menu-id="0100" menu-path="desk" menu-name="个人工作台"/>
+		-->
+		<menu menu-id="0200" menu-path="popedom" menu-name="权限管理系统"/>
+		<menu menu-id="0600" menu-path="inspect" menu-name="监督抽查"/>
+		<!-- 
+		<menu menu-id="0300" menu-path="executive" menu-name="行政审批管理系统"/>
+		<menu menu-id="0400" menu-path="supervise" menu-name="证后监管管理系统"/>
+		<menu menu-id="0500" menu-path="ordinary" menu-name="行政执法一般流程"/>
+		<menu menu-id="0600" menu-path="simple" menu-name="行政执法简易流程"/>
+		<menu menu-id="0700" menu-path="prove" menu-name="执法电子证据管理系统"/>
+		<menu menu-id="0900" menu-path="analyse" menu-name="大数据分析系统"/>
+		 -->
+	</menus>
+	<compInit>
+		<comp cId="520000X101" cName="贵州省质量技术监督局" pId="" valid="1" />
+	</compInit>
+</syscfg>
